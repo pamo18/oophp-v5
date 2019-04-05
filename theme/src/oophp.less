@@ -1,0 +1,76 @@
+/*!
+ * Stylesheet for oophp.
+ *
+ * This stylesheet is for the oophp course where we use LESS.
+ */
+
+/**
+ * Internal self contained modules, save in directory module/.
+ */
+
+/**
+* Normalize and reset the style.
+*/
+@import "normalize.css/normalize.less";
+
+/**
+ * Font Awesome.
+ */
+@import "@fortawesome/fontawesome-free/less/fontawesome.less";
+@import "@fortawesome/fontawesome-free/less/solid.less";
+@import "@fortawesome/fontawesome-free/less/brands.less";
+
+/**
+ * Figure and figcaption for images and other media using figure/figcaption
+ */
+@import "@desinax/figure/less/asciinema.less";
+@import "@desinax/figure/less/codepen.less";
+@import "@desinax/figure/less/figure.less";
+
+/**
+ * A responsive menu.
+ */
+@import "@desinax/responsive-menu/less/responsive-menu.less";
+@import "@desinax/responsive-menu/less/media-queries.less";
+
+/**
+ * Import the typographic grid.
+ */
+@import "@desinax/typographic-grid/less/typography-font-families.less";
+@import "@desinax/typographic-grid/less/typography-defaults.less";
+
+/**
+ * Base style to affect HTML elements on a general scale.
+ */
+@import "base/base_oophp.less";
+
+/**
+ * Import the vertical grid.
+ */
+@import "@desinax/vertical-grid/less/grid.less";
+// Default grid, change to fit your requirements.
+//@columnWidth:   30;
+//@gutterWidth:   10;
+//@columns:       24;
+//@gridType:      "float"; // "flex"
+
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+@import "layout/layout_oophp.less";
+@import "layout/responsive_oophp.less";
+@import "layout/regions.less";     // To add style for ?regions
+
+/**
+ * My own settings, not currently in their own module.
+ */
+a {
+    font-family: "serif";
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}

@@ -1,0 +1,201 @@
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+
+/**
+ * Variables
+ */
+
+
+/**
+ * General layout
+ */
+
+ /* Hide submenu, leave this to kmom02 */
+ .rm-desktop ul {
+     display: none;
+ }
+
+ /* Hide responsive/mobile menu, leave this to kmom02 */
+ .rm-navbar-max {
+     display: none;
+ }
+
+.inner-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.wrap-all {
+    margin: 0 auto;
+    background-color: #e6f2f3;
+    max-width: 1100px;
+}
+
+.site-logo {
+    display: none;
+}
+
+.region-header {
+    position: relative;
+}
+
+.region-header-col-1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+.site-logo-text {
+    font-size: 2.8em;
+}
+
+.site-logo-text > a {
+    text-decoration: none;
+    color: #165c87;
+}
+
+.rm-navbar {
+    padding-top: 2px;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rm-navbar li {
+    display: inline-block;
+    padding: 2px;
+    margin-right: 1em;
+}
+
+.rm-navbar a {
+    font-size: 1.6em;
+    text-decoration: none;
+    color: black;
+}
+
+.figure {
+    margin-left: 0;
+    float: left;
+}
+
+.figure img {
+    border-radius: 10px;
+}
+
+.om-image {
+    float: right;
+    margin-left: 0;
+    margin-top: -2em;
+    margin-bottom: 0;
+}
+
+.om-image p {
+    margin: 0;
+    text-align: center;
+}
+
+.region-main,
+.block,
+.region-after-main  {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.block {
+    overflow: auto;
+    clear: both;
+}
+
+.inner-wrap {
+    position: relative;
+}
+
+.region-main.has-sidebar-right {
+    float: left;
+    max-width: 650px;
+    margin-left: 50px;
+}
+
+.wrap-sidebar.region-sidebar-right {
+    float: right;
+    margin-right: 50px;
+    margin-top: 10px;
+    width: 300px;
+}
+
+.has-sidebar-left.has-sidebar-right,
+.has-sidebar-left.has-sidebar-right {
+    float: none;
+    width: 100%;
+}
+
+.article {
+    overflow: auto;
+    clear: both;
+}
+
+.Paul {
+    margin-top: -1em;
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.site-footer {
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    clear: both;
+    text-align: center;
+    border-top: 2px solid black;
+}
+
+.region-footer {
+    background-color: #165c87;
+    color: white;
+    clear: both;
+}
+
+.footer-column {
+    padding: 8px;
+    display: inline;
+    float: left;
+    width: 30%;
+}
+
+.footer-column:not(:last-child) {
+    border-right: 2px solid black;
+}
+
+.breadcrumb-list {
+    margin-left: 50px;
+}
+
+.breadcrumb-list a {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.toc a {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.next {
+    float: right;
+}
+
+.previous {
+    float: left;
+}
+
+.next-previous {
+    overflow: auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 5px;
+}

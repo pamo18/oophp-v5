@@ -1,0 +1,97 @@
+/**
+ * Base style to affect HTML elements on a general scale.
+ */
+
+/**-----------------------------------------/
+* Variables & Mixins
+*-----------------------------------------*/
+@html: black;
+@page: #e6f2f3;
+@headfoot: linear-gradient(to bottom, #165c87 , black);
+@headfootText: white;
+@links: #165c87;
+@weight: bold;
+/**
+* Show the typographic grid
+*/
+.hgrid .inner-wrap {
+ @gridImage: "../img/magic-number-@{magicNumber}.png";
+ #desinax-hgrid.showGrid(@gridImage);
+}
+// Enable style from the module and optinally add customized layout
+figure.figure {
+    @maxContentWidth: 1100px;
+    #desinax-figure.figure(@maxContentWidth);
+}
+
+figure.asciinema {
+    &:extend(figure.figure);
+    #desinax-figure.asciinema();
+}
+
+figure.codepen,
+figure.figure-codepen {
+    &:extend(figure.figure);
+    #desinax-figure.codepen();
+}
+/**-----------------------------------------/
+* Page style
+*-----------------------------------------*/
+// Page
+.wrap-all {
+    background-color: @page;
+}
+// Navbars
+.rm-default,
+.rm-default ul {
+     background-image: @headfoot;
+     color: @headfootText;
+ }
+
+a {
+    color: @links;
+    text-decoration: none;
+}
+// Footer
+.outer-wrap-footer,
+.inner-wrap-footer {
+    background-image: @headfoot;
+    color: @headfootText;
+}
+
+/**-----------------------------------------/
+* Base
+*-----------------------------------------*/
+html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: @html;
+}
+
+body {
+    // Activate the grid base font
+    #desinax-hgrid.font(@fontSizeBody);
+}
+
+img {
+    max-width: 100%;
+}
+
+figure img {
+    border-radius: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    margin: 0 auto;
+}
+
+// Activate grid and affect all typographic elements
+#desinax-hgrid.activateDefaultTypography();
+
+/**-----------------------------------------/
+ * End of base
+ *-----------------------------------------*/

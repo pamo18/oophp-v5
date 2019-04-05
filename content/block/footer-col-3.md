@@ -1,3 +1,3 @@
-#### Footer col 3
+#### LinkedIn:
 
-Med brödtext i ett stycke som säger något trevligt om just detta block, eller kanske en lista av länkar.
+<a href ="https://www.linkedin.com/in/paul-moreland-ba219415b"><img src="img/linkedin.png" alt="LinkedIn" style="width: 55px;"></a>

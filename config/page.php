@@ -20,8 +20,8 @@ return [
             "lang" => "sv",
             "stylesheets" => [
                 // Change here to set another default stylesheet
-                "css/dbwebb-se.min.css",
-                //"css/another.min.css",
+                "css/oophp.min.css",
+                //"css/pamo.min.css",
             ],
             "javascripts" => [
                 "js/responsive-menu.js",
@@ -36,8 +36,8 @@ return [
             "template" => "anax/v2/header/site_logo",
             "data" => [
                 "class" => "large",
-                "siteLogo"      => "image/theme/leaf_256x256.png",
-                "siteLogoAlt"   => "Löv",
+                "siteLogo"      => "image/theme/logo_256x256.jpg",
+                "siteLogoAlt"   => "Manchester Bee",
             ],
         ],
         [
@@ -46,8 +46,8 @@ return [
             "data" => [
                 "homeLink"      => "",
                 "siteLogoText"  => "oophp",
-                "siteLogoTextIcon" => "image/theme/leaf_40x40.png",
-                "siteLogoTextIconAlt" => "Löv-bild",
+                "siteLogoTextIcon" => "image/theme/logo_48x48.jpg",
+                "siteLogoTextIconAlt" => "Manchester Bee",
             ],
         ],
         [

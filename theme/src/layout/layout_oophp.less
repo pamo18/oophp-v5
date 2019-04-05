@@ -1,0 +1,226 @@
+/**
+ * Layout style for general structure of header, navbar, main, footer
+ * and other regions of the page including route specific styles.
+ */
+
+/**-----------------------------------------/
+ * Variables
+ *-----------------------------------------*/
+
+/**-----------------------------------------/
+ * General layout
+ *-----------------------------------------*/
+
+/**-----------------------------------------/
+ * VGrid for easy layout
+ *-----------------------------------------*/
+.row {
+    #desinax-vgrid.row();
+}
+
+.inner-wrap {
+    #desinax-vgrid.grid(1100px);
+}
+/**
+ * Over-ride inner-wrapp for header
+ */
+.inner-wrap-header {
+    #desinax-vgrid.grid(100%);
+    margin-bottom: 12px;
+}
+/**
+ * Show the vertikalt grid
+ */
+.vgrid .inner-wrap {
+    @gridImage: "../img/grid_24x30x10-nomargin.png";
+    //@gridImage: "../../img/grid_12x60x20-nomargin.png";
+    #desinax-vgrid.showGrid(@gridImage, 1100px);
+
+    &.inner-wrap-header,
+    &.inner-wrap-footer {
+        #desinax-vgrid.showGrid(@gridImage);
+    }
+}
+/**-----------------------------------------/
+ * Navbars, mobile and desktop
+ *-----------------------------------------*/
+ .rm-navbar-max {
+     display: none;
+ }
+
+ .rm-small {
+     font-size: 2em;
+ }
+
+ .rm-default a {
+  font-size: 1.6em;
+  padding: 0.6em;
+ }
+/**-----------------------------------------/
+ * Header
+ *-----------------------------------------*/
+.region-header-col-1,
+.region-header-col-3 {
+    #desinax-vgrid.column(12);
+}
+
+.region-header-col-2 {
+    #desinax-vgrid.column(@columns);
+    text-align: center;
+}
+
+.site-logo {
+    display: none;
+}
+
+.site-logo-text {
+    font-size: 3em;
+}
+/**-----------------------------------------/
+ * Flash image, under navbar
+ *-----------------------------------------*/
+.region-flash {
+    #desinax-vgrid.column(@columns);
+}
+/**-----------------------------------------/
+ * Main, with or without sidebars
+ *-----------------------------------------*/
+.region-main {
+    #desinax-vgrid.column(@columns * 3 / 4);
+    #desinax-vgrid.push(3);
+    min-height: 600px;
+
+    &.has-sidebar {
+        #desinax-vgrid.push(0);
+    }
+
+    &.has-sidebar-left {
+        min-height: 408px;
+    }
+
+    &.has-sidebar-right {
+        #desinax-vgrid.column(@columns * 3 / 4 - 1);
+        min-height: 456px;
+    }
+
+    &.has-sidebar-left.has-sidebar-right {
+        #desinax-vgrid.column(@columns * 3 / 4 - 2);
+        #desinax-vgrid.push(1);
+        text-align: center;
+    }
+}
+/**-----------------------------------------/
+ * Sidebars
+ *-----------------------------------------*/
+.region-sidebar-left,
+.region-sidebar-right {
+    #desinax-vgrid.column(@columns * 1 / 4);
+}
+/**-----------------------------------------/
+ * Sidebar right only
+ *-----------------------------------------*/
+.region-sidebar-right {
+    #desinax-vgrid.push(1);
+}
+/**-----------------------------------------/
+ * Sidebar both left and right
+ *-----------------------------------------*/
+.region-sidebar-left.has-sidebar-right,
+.region-sidebar-right.has-sidebar-left {
+    #desinax-vgrid.column(3);
+}
+
+.region-sidebar-right.has-sidebar-left {
+    #desinax-vgrid.push(1);
+}
+/**-----------------------------------------/
+ * Main contents
+ *-----------------------------------------*/
+.figure.family {
+    margin: 0;
+    text-align: center;
+}
+
+.figure.family p {
+    margin-top: 0;
+    font-style: italic;
+}
+
+.figure.om-image p {
+    margin-top: 0;
+    text-align: center;
+}
+
+.blogg {
+    clear: both;
+}
+/**-----------------------------------------/
+ * Breadcrumbs, controls for reports
+ *-----------------------------------------*/
+.region-breadcrumb {
+    #desinax-vgrid.column(@columns);
+}
+
+.region-breadcrumb li {
+    display: inline-block;
+
+    &:after {
+        font-family: "Font Awesome 5 Free";
+        content: " \f101";
+    }
+}
+
+.next {
+    float: right;
+}
+
+.previous {
+    float: left;
+}
+
+.next-previous {
+    overflow: auto;
+    padding-top: @magicNumber;
+}
+/**-----------------------------------------/
+ * Byline
+ *-----------------------------------------*/
+.region-after-main {
+    #desinax-vgrid.column(@columns);
+}
+
+.figure.Paul {
+    margin-bottom: @magicNumber;
+}
+
+/**-----------------------------------------/
+ * Footer columns
+ *-----------------------------------------*/
+.footer-column {
+    #desinax-vgrid.column(@columns / 3);
+    text-align: center;
+
+    & a {
+        color: white;
+    }
+
+    & h4 {
+        border: none;
+    }
+}
+
+.footer-column-1,
+.footer-column-2 {
+    border-right: 2px solid black;
+}
+/**-----------------------------------------/
+ * Bottom footer
+ *-----------------------------------------*/
+.site-footer {
+    #desinax-vgrid.column(@columns);
+    text-align: center;
+    border-top: 1px solid black;
+}
+/**-----------------------------------------/
+ * End of layout
+ *-----------------------------------------*/

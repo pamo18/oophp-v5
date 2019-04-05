@@ -1,27 +1,22 @@
 ---
-title: "Min fina titel"
+title: "Paul Moreland's me-sida"
+views:
+    byline:
+        region: after-main
+        template: anax/v2/block/default
+        sort: 2
+        data:
+            meta:
+                type: single
+                route: block/byline
 ---
 Min me-sida i kursen oophp
 =========================
 
-Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/index.md`.
+[FIGURE src="image/me.jpg?w=500" class="family right w50" caption="Bild på mig och min familj, jag är i mitten:)"]
 
-[FIGURE src="image/me.jpg?w=400&a=4,27,11,0&cf&sharpen" class="right" caption="Bild på mig, ätandes glass och hållandes ett kort på någon jultillställning."]
+Hej, Mitt namn är Paul Moreland och jag är född i Oktober 1980, England. Jag är uppväxt i Manchester där mina föräldrar och min andra släkt bor kvar. Året 1999 kommer jag starkt ihåg, Manchester United vann en Trippel, Premier league, Champions league & FA cupen. Samma år träfffade jag min fru som drog mig till Sverige, där jag bor kvar idag med två barn, pojkar 15 & 11 år. Vi bor utanför Lidköping i Västra Götaland.
 
-Detta är min me-sida i kursen. Denna sidan innehåller en presentation av mig själv. Underhåll denna sidan under hela kursen och uppdatera den efter hand och behov.
+Jag har jobbat 20 år inom handel men jobbar nu också som IT-Tekniker på De La Gardiegymnasiet. Mina hobbys är allt inom data och AV samt löpning och styketräning när jag hinner. Självklart är fotboll högt prioriterat i mitt liv också.
 
-Så, en presentation en bra början. Skriv några ord om dig själv. Jag börjar.
-
-Mitt namn är Mikael Roos. Född och uppvuxen i Bankeryd, Småland, strax utanför Jönköping, i ett villaområde som byggdes upp samtidigt som vi flyttade in där. Jag gillade landhockey och har spelat bandy och hockey samt gått bowlinggymnasiet i Nässjö. Jag har varit städare, diskare, kallskänka, servitör och kock. På ett bananskal landade jag i Ronneby när jag började högskolan 1990 där och nu är jag kvar med fru, barn och så vidare.
-
-Programmering har alltid intresserat mig sedan 13-årsåldern och min första dator var en Spectravideo 328 med bandspelare.
-
-Om jag skall nämna någon hobby, förutom webbprogrammering, så får det bli att bära sten på sommarstugetomten, och det finns sten så det räcker och blir över.
-
-Till och från får jag för mig att börja på lite hobbies, ett år satsade jag på pokerspel, ett annat år var det geocaching, sedan turfing och nu på sistone verkar släktforskning lite spännande. Annars kan jag alltid koda på något av mina opensource-projekt, det finns och blir över.
-
-Vill du läsa mer om vad jag jobbat med så kan du kika på min [Linkedin-profil](https://www.linkedin.com/in/pt90mr/).
-
-Vi syns och hörs i forum och chatt!
-
-/Mikael
+Jag har nu börjat att studera Webbprogrammering, vilket jag har funderat över länge efter att jag fick smak för programmering för några års sedan. På De La Gardiegymnasiet har jag skapat ett butikssystem från grunden med självskanning och lager-hantering genom MS Excel och VBA programmering. Detta är den mest avancerade sak jag har hittills skapat inom programmering men hoppas att kunna bygga på detta och utveckla mycket mer framöver.
