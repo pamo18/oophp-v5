@@ -78,6 +78,9 @@ $app->router->post("dice-game/start", function () use ($app) {
         $directTo = "dice-game/start";
     } else if ($app->request->getPost("do-play")) {
         $directTo = "dice-game/play";
+    } else if ($app->request->getPost("do-computer")) {
+        $game->playRound("Computer");
+        $directTo = "dice-game/play";
     }
     return $app->response->redirect($directTo);
 });
@@ -89,11 +92,13 @@ $app->router->get("dice-game/play", function () use ($app) {
     $title = "Play the game!";
     $game = $app->session->get("dice-game");
     $data = [
+        "throws" => $game->getThrows(),
         "handFaces" => $game->showHandFaces(),
         "player" => $game->showPlayersTurn(),
         "gameScore" => $game->showPlayerScore(),
         "roundScore" => $game->showRoundScore(),
-        "status" => $game->checkScore()
+        "status" => $game->checkScore(),
+        "computer" => $game->showPlayersTurn() == "Computer" ?? null
     ];
     $app->page->add("dice/play", $data);
 

@@ -11,12 +11,12 @@ class Round
      * @var object $currentHand  The current hand object.
      * @var int $roundScore      The score for the current round.
      * @var bool $gotOne         Was a one thrown.
-     * @var bool $start          Is it the start of the round.
+     * @var int $throws          The number of throws in this round.
      */
     private $currentHand;
     private $roundScore;
     private $gotOne;
-    private $start;
+    private $throws;
     /**
      * Constructor to initiate the object with current hand settings,
      * if available.  Get rolled dice and add to the hand.
@@ -29,7 +29,7 @@ class Round
         $this->currentHand = $currentHand;
         $this->roundScore = 0;
         $this->gotOne = false;
-        $this->start = true;
+        $this->throws = 0;
     }
 
     /**
@@ -39,9 +39,6 @@ class Round
      */
     public function play() : void
     {
-        if ($this->start) {
-            $this->start = false;
-        }
         $this->currentHand->rollDice();
         $roundHand = $this->currentHand->showHand();
         if (in_array(1, $roundHand)) {
@@ -50,6 +47,7 @@ class Round
         } else {
             $this->roundScore += $this->currentHand->sumHand();
         }
+        $this->throws += 1;
     }
 
     /**
@@ -73,12 +71,12 @@ class Round
     }
 
     /**
-     * Is it the start of the round.
+     * How many throws have there been
      *
-     * @return bool as result.
+     * @return int as number of throws
      */
-    public function start() : bool
+    public function throws() : int
     {
-        return $this->start;
+        return $this->throws;
     }
 }

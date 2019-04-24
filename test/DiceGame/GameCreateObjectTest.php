@@ -151,6 +151,26 @@ class GameCreateObjectTest extends TestCase
         $this->assertEquals($exp, $res);
     }
 
+    public function testCreateObjectFirstArgumentComputer()
+    {
+        $game = new Game(["Computer", "Hanna"]);
+        $this->assertInstanceOf("\Pamo\DiceGame\Game", $game);
+
+        $game->decideWhoStarts();
+        $game->setupHand(2, 6);
+        $game->playRound("Computer");
+        $res = $game->getThrows();
+        $exp = 1;
+        $this->assertGreaterThanOrEqual($exp, $res);
+
+        $game->setupHand(1, 1);
+        $game->playRound("Computer");
+        $exp = "one";
+        $res = $game->checkScore();
+
+        $this->assertEquals($exp, $res);
+    }
+
     public function testCreateObjectFirstArgumentGotOne()
     {
         $game = new Game(["Paul", "Hanna"]);

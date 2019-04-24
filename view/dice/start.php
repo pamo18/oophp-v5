@@ -19,8 +19,12 @@ namespace Anax\View;
                 <i class="dice-sprite <?= "dice-" . $winningThrow ?>"></i>
             </div>
     <?php } ?>
-    <h3 class="center"><?= $player ?>'s turn'</h3>
+    <h3 class="bold center"><?= $player ?>'s turn'</h3>
     <form class="center guess" action="start" method="post">
+        <?php if ($player == "Computer") { ?>
+        <input class="button" type="submit" name="do-computer" value="Play!">
+        <?php } else { ?>
         <input class="button" type="submit" name="do-play" value="Play!">
+        <?php } ?>
     </form>
 <?php } ?>

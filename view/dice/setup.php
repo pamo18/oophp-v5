@@ -17,8 +17,10 @@ namespace Anax\View;
 <h1 class="center">Now add your names</h1>
 
 <form class="center guess" action="setup" method="post">
+    <label for="player1">Player 1 name:</label>
+    <input class="center wide" id="player1" required type="text" value="Computer" name="player-names[]">
     <?php
-    for ($i = 1; $i <= $numPlayers; $i++) { ?>
+    for ($i = 2; $i <= $numPlayers; $i++) { ?>
         <label for="player<?=$i?>">Player <?=$i?> name:</label>
         <input class="center wide" id="player<?=$i?>" required type="text" name="player-names[]">
     <?php } ?>

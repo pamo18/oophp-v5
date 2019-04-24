@@ -114,9 +114,32 @@ class Game
      *
      * @return void
      */
-    public function playRound() : void
+    public function playRound(string $player = "", int $frequency = 3) : void
     {
+        if ($player == "") {
+            $this->round->play();
+        } else if ($player == "Computer") {
+            $this->computer($frequency);
+        }
+    }
+
+    /**
+     * Computer plays a round
+     *
+     * @return null
+     */
+    private function computer(int $frequency = 3)
+    {
+        $rand = rand(1, $frequency);
         $this->round->play();
+        $result = $this->checkScore();
+        if ($result == "one" || $result == "win") {
+            return;
+        } else if ($frequency == $rand) {
+            $this->computer($frequency);
+        } else {
+            return;
+        }
     }
 
     /**
@@ -127,6 +150,16 @@ class Game
     public function showHandFaces() : array
     {
         return $this->hand->showHand();
+    }
+
+    /**
+     * Get the number of throws in current round.
+     *
+     * @return int as number of throws.
+     */
+    public function getThrows() : int
+    {
+        return $this->round->throws();
     }
 
     /**
@@ -155,7 +188,7 @@ class Game
 
         if ($this->playersTurn == "") {
             $result = "new";
-        } else if ($this->round->start()) {
+        } else if ($this->round->throws() == 0) {
             $result = "start";
         } else if ($this->round->throwGotOne()) {
             $result = "one";
