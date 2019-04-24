@@ -14,7 +14,6 @@ class Game
      * @var int $winningThrow     The first rounds deciding highest throw value.
      * @var object $round         The current round object.
      * @var object $hand          The current hand object.
-     * @var object $dice          The current dice object.
      */
     private $players;
     private $numOfDice;
@@ -22,7 +21,6 @@ class Game
     private $winningThrow;
     private $round;
     private $hand;
-    private $dice;
 
     /**
      * Constructor to initiate the object with current hand settings,
@@ -44,7 +42,6 @@ class Game
         $this->hand = new Hand($numOfDice);
         $this->hand->setup();
         $this->round = new Round($this->hand);
-        $this->dice = new Dice();
     }
 
     /**
@@ -54,9 +51,11 @@ class Game
      */
     public function decideWhoStarts() : void
     {
+        $startHand = new Hand();
+        $startHand->setup();
         foreach (array_keys($this->players) as $player) {
-            $this->dice->roll();
-            $diceFace = $this->dice->face();
+            $startHand->rollDice();
+            $diceFace = $startHand->showHand()[0];
             if ($this->winningThrow == 0 || $diceFace > $this->winningThrow) {
                 $this->winningThrow = $diceFace;
                 $this->playersTurn = $player;

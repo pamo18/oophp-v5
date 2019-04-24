@@ -12,7 +12,7 @@ namespace Anax\View;
 
 <?php } else { ?>
     <h1 class="center">New round</h1>
-    <?php if ($winningThrow > 0) { ?>
+    <?php if ($winningThrow) { ?>
             <h4 class="center">The highest throw was <?= $winningThrow ?> thrown by <?= $player ?></h4>
             <br>
             <div class="dice-graphic center">

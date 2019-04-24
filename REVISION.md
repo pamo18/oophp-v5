@@ -12,3 +12,9 @@ v2.0.0 (2019-04-12)
 *   Guess game added
 *   Added new redovisningen
 *   Kmom02
+
+v3.0.0 (2019-04-25)
+-------------------
+*   Dice 100 game added
+*   Added new redovisningen
+*   Kmom03
