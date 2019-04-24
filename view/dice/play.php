@@ -22,21 +22,22 @@ namespace Anax\View;
 <?php if ($status == "one") { ?>
     <p class="center">You got a <span class="red">ONE</span> and lose all points from this round!</p>
 <?php } ?>
-<?php if ($status == "one" || $computer) { ?>
+
+<?php if ($status == "win") { ?>
+    <h4 class="center correct">Congratulations <?= $player ?>, you won!</h4>
+    <form class="center guess" action="play" method="post">
+        <input class="button" type="submit" name="do-reset" value="New game">
+    </form>
+<?php } else if ($status == "one" || $computer) { ?>
     <form class="center guess" action="play" method="post">
         <input class="button" type="submit" name="do-end" value="Next player">
         <input class="button" type="submit" name="do-reset" value="Reset">
     </form>
 <?php } else if ($status == "play" || $status == "start") { ?>
-<br>
-<form class="center guess" action="play" method="post">
-    <input class="button" type="submit" name="do-end" value="End the round">
-    <input class="button" type="submit" name="do-roll" value="Roll the dice">
-    <input class="button" type="submit" name="do-reset" value="Reset">
-</form>
-<?php } else if ($status == "win") { ?>
-    <h4 class="center correct">Congratulations <?= $player ?>, you won!</h4>
+    <br>
     <form class="center guess" action="play" method="post">
-        <input class="button" type="submit" name="do-reset" value="New game">
+        <input class="button" type="submit" name="do-end" value="End the round">
+        <input class="button" type="submit" name="do-roll" value="Roll the dice">
+        <input class="button" type="submit" name="do-reset" value="Reset">
     </form>
 <?php } ?>
