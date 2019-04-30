@@ -5,5 +5,5 @@ Who can get to 100 points first?  Roll the dice to accumulate points between 2 a
 ####<center>Good Luck!</center>
 
 <div class="start-game center">
-    <a class="button" href="dice-game/new-game">Start a new game!</a>
+    <a class="button" href="dice100/new">Start a new game!</a>
 </div>

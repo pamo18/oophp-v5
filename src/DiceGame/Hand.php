@@ -35,7 +35,7 @@ class Hand
     {
         $this->currentHand = [];
         for ($i = 0; $i < $this->numOfDice; $i++) {
-            $newDice = new Dice($start, $sides);
+            $newDice = new DiceHistogram($start, $sides);
             array_push($this->currentHand, $newDice);
         }
     }
@@ -50,6 +50,16 @@ class Hand
         foreach ($this->currentHand as $dice) {
             $dice->roll();
         }
+    }
+
+    /**
+     * Show the dice objects.
+     *
+     * @return array as the current hand dice objects.
+     */
+    public function showDice() : array
+    {
+        return $this->currentHand;
     }
 
     /**

@@ -4,6 +4,7 @@ namespace Pamo\DiceGame;
 
 /**
  * Game for game Dice 100
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 class Game
 {
@@ -100,26 +101,33 @@ class Game
     }
 
     /**
-     * Get the current round score.
+     * Get the current round score, histogram, throws and dice faces.
      *
-     * @return int as round score.
+     * @return array as round results.
      */
-    public function showRoundScore() : int
+    public function showRound() : array
     {
-        return $this->round->getRoundScore();
+        $currentRound = [
+            "score" => $this->round->getRoundScore(),
+            "histogram" => $this->round->showHistogram(),
+            "throws" => $this->round->throws(),
+            "faces" => $this->hand->showHand()
+        ];
+
+        return $currentRound;
     }
 
     /**
-     * Play a round
+     * Play a round.
      *
      * @return void
      */
-    public function playRound(string $player = "", int $frequency = 3) : void
+    public function playRound(string $player = "", int $difficulty = 3) : void
     {
         if ($player == "") {
             $this->round->play();
         } else if ($player == "Computer") {
-            $this->computer($frequency);
+            $this->computer($difficulty);
         }
     }
 
@@ -128,38 +136,21 @@ class Game
      *
      * @return null
      */
-    private function computer(int $frequency = 3)
+    private function computer(int $difficulty = 3)
     {
-        $rand = rand(1, $frequency);
+        $rand = rand(1, $difficulty);
         $this->round->play();
         $result = $this->checkScore();
+        $histogram = $this->round->getHistogram();
         if ($result == "one" || $result == "win") {
             return;
-        } else if ($frequency == $rand) {
-            $this->computer($frequency);
-        } else {
+        } else if ($histogram->getThrowCount() >= 4 && $histogram->getAverage() >= 3) {
             return;
+        } else if ($rand == $difficulty) {
+            return;
+        } else {
+            $this->computer($difficulty);
         }
-    }
-
-    /**
-     * Get dice face values from the current hand
-     *
-     * @return array as the face values.
-     */
-    public function showHandFaces() : array
-    {
-        return $this->hand->showHand();
-    }
-
-    /**
-     * Get the number of throws in current round.
-     *
-     * @return int as number of throws.
-     */
-    public function getThrows() : int
-    {
-        return $this->round->throws();
     }
 
     /**
@@ -181,7 +172,7 @@ class Game
     public function checkScore(int $score = -1) : string
     {
         if ($score == -1) {
-            $currentRoundScore = $this->showRoundScore();
+            $currentRoundScore = $this->round->getRoundScore();
         } else {
             $currentRoundScore = $score;
         }
@@ -208,7 +199,7 @@ class Game
     public function endRound() : void
     {
         if ($this->round->throwGotOne() == false) {
-            $this->players[$this->playersTurn] += $this->showRoundScore();
+            $this->players[$this->playersTurn] += $this->round->getRoundScore();
         }
         $keys = array_keys($this->players);
         $currentPlayer = array_search($this->playersTurn, $keys);

@@ -13,7 +13,7 @@ class Dice
      * @var int $face    Current dice face value.
      */
     private $start;
-    private $sides;
+    protected $sides;
     private $face;
     /**
      * Constructor to initiate the object with current dice settings,
@@ -33,12 +33,14 @@ class Dice
     /**
      * Roll the dice and set as the current face value.
      *
-     * @return void
+     * @return int as last roll
      */
-    public function roll() : void
+    public function roll() : int
     {
         $randomNumber = rand($this->start, $this->sides);
         $this->face = $randomNumber;
+
+        return $this->face;
     }
 
     /**

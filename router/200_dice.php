@@ -57,7 +57,6 @@ $app->router->get("dice-game/init", function () use ($app) {
 $app->router->get("dice-game/start", function () use ($app) {
     $title = "Who's turn is it";
     $game = $app->session->get("dice-game");
-    $app->session->delete("winning-throw");
 
     $data = [
         "winningThrow" => $game->showWinningThrow(),
@@ -91,12 +90,14 @@ $app->router->post("dice-game/start", function () use ($app) {
 $app->router->get("dice-game/play", function () use ($app) {
     $title = "Play the game!";
     $game = $app->session->get("dice-game");
+    $round = $game->showRound();
     $data = [
-        "throws" => $game->getThrows(),
-        "handFaces" => $game->showHandFaces(),
+        "roundScore" => $round["score"],
+        "histogram" => $round["histogram"],
+        "throws" => $round["throws"],
+        "handFaces" => $round["faces"],
         "player" => $game->showPlayersTurn(),
         "gameScore" => $game->showPlayerScore(),
-        "roundScore" => $game->showRoundScore(),
         "status" => $game->checkScore(),
         "computer" => $game->showPlayersTurn() == "Computer" ?? null
     ];

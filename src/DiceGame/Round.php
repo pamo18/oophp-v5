@@ -12,11 +12,13 @@ class Round
      * @var int $roundScore      The score for the current round.
      * @var bool $gotOne         Was a one thrown.
      * @var int $throws          The number of throws in this round.
+     * @var object $histogram     The current round histogram object.
      */
     private $currentHand;
     private $roundScore;
     private $gotOne;
     private $throws;
+    private $histogram;
     /**
      * Constructor to initiate the object with current hand settings,
      * if available.  Get rolled dice and add to the hand.
@@ -30,6 +32,8 @@ class Round
         $this->roundScore = 0;
         $this->gotOne = false;
         $this->throws = 0;
+        $this->histogram = new Histogram();
+        $this->updateHistogram();
     }
 
     /**
@@ -47,6 +51,7 @@ class Round
         } else {
             $this->roundScore += $this->currentHand->sumHand();
         }
+        $this->updateHistogram();
         $this->throws += 1;
     }
 
@@ -78,5 +83,38 @@ class Round
     public function throws() : int
     {
         return $this->throws;
+    }
+
+    /**
+     * Update the histogram with the current dice.
+     *
+     * @return void.
+     */
+    private function updateHistogram() : void
+    {
+        $this->histogram->clear();
+        foreach ($this->currentHand->showDice() as $dice) {
+            $this->histogram->injectData($dice);
+        }
+    }
+
+    /**
+     * Return the histogram object.
+     *
+     * @return object as histogram.
+     */
+    public function getHistogram() : object
+    {
+        return $this->histogram;
+    }
+
+    /**
+     * Show the histogram
+     *
+     * @return string as the histogram
+     */
+    public function showHistogram(): string
+    {
+        return $this->histogram->getAsText();
     }
 }

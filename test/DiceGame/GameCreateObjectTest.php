@@ -31,8 +31,9 @@ class GameCreateObjectTest extends TestCase
 
         $game->decideWhoStarts();
         $game->playRound();
+        $roundResults = $game->showRound();
 
-        $res = count($game->showHandFaces());
+        $res = count($roundResults["faces"]);
         $exp = 1;
         $this->assertLessThanOrEqual($exp, $res);
     }
@@ -42,14 +43,16 @@ class GameCreateObjectTest extends TestCase
         $game = new Game(["Paul", "Hanna"]);
         $this->assertInstanceOf("\Pamo\DiceGame\Game", $game);
 
-        $res = $game->showRoundScore();
+        $roundResults = $game->showRound();
+        $res = $roundResults["score"];
         $exp = 0;
         $this->assertEquals($exp, $res);
 
         $game->decideWhoStarts();
         $game->playRound();
 
-        $res = $game->showRoundScore();
+        $roundResults = $game->showRound();
+        $res = $roundResults["score"];
         $exp = 6;
         $this->assertLessThanOrEqual($exp, $res);
 
@@ -97,8 +100,9 @@ class GameCreateObjectTest extends TestCase
         $game->decideWhoStarts();
         $player = $game->showPlayersTurn();
         $game->playRound();
+        $roundResults = $game->showRound();
 
-        $exp = $game->showRoundScore();
+        $exp = $roundResults["score"];
         $game->endRound();
         $res = $game->showPlayerScore($player);
 
@@ -151,18 +155,40 @@ class GameCreateObjectTest extends TestCase
         $this->assertEquals($exp, $res);
     }
 
-    public function testCreateObjectFirstArgumentComputer()
+    public function testCreateObjectBothArgumentsComputer()
     {
         $game = new Game(["Computer", "Hanna"]);
         $this->assertInstanceOf("\Pamo\DiceGame\Game", $game);
 
         $game->decideWhoStarts();
         $game->setupHand(2, 6);
+
         $game->playRound("Computer");
-        $res = $game->getThrows();
+        $roundResults = $game->showRound();
+        $res = $roundResults["throws"];
         $exp = 1;
         $this->assertGreaterThanOrEqual($exp, $res);
 
+        $game = new Game(["Computer", "Hanna"]);
+        $game->decideWhoStarts();
+        $game->setupHand(3, 6);
+        $game->playRound("Computer", 1);
+        $roundResults = $game->showRound();
+        $res = $roundResults["throws"];
+        $exp = 1;
+        $this->assertEquals($exp, $res);
+
+        $game = new Game(["Computer", "Hanna"]);
+        $game->decideWhoStarts();
+        $game->setupHand(5, 6);
+        $game->playRound("Computer", 1000);
+        $roundResults = $game->showRound();
+        $res = $roundResults["throws"];
+        $exp = 4;
+        $this->assertEquals($exp, $res);
+
+        $game = new Game(["Computer", "Hanna"]);
+        $game->decideWhoStarts();
         $game->setupHand(1, 1);
         $game->playRound("Computer");
         $exp = "one";
