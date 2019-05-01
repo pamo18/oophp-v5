@@ -18,3 +18,11 @@ v3.0.0 (2019-04-25)
 *   Dice 100 game added
 *   Added new redovisningen
 *   Kmom03
+
+v4.0.0 (2019-05-01)
+-------------------
+*   Dice 100, routes moved to controller class
+*   Dice 100, histogram added
+*   Dice 100, improved computer intelligence.
+*   Added new redovisningen
+*   Kmom04

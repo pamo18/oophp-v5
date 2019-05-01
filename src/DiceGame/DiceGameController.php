@@ -20,6 +20,7 @@ class DiceGameController implements AppInjectableInterface
      * @var string
      */
     private $db = "not active";
+    private $base = "";
 
 
 
@@ -27,9 +28,10 @@ class DiceGameController implements AppInjectableInterface
      *
      * @return void
      */
-    public function initialize() : void
+    public function initialize()
     {
         $this->db = "active";
+        $this->base = "dice100/";
     }
 
 
@@ -42,7 +44,7 @@ class DiceGameController implements AppInjectableInterface
     public function newActionGet() : object
     {
         $this->app->session->destroy();
-        return $this->app->response->redirect("dice100/setup");
+        return $this->app->response->redirect($this->base . "setup");
     }
 
 
@@ -80,15 +82,15 @@ class DiceGameController implements AppInjectableInterface
         $response = $this->app->response;
         $session = $this->app->session;
         $request = $this->app->request;
-        $directTo = "";
+        $directTo = $this->base;
 
         if ($request->getPost("do-setup")) {
             $session->set("num-players", $request->getPost("num-players"));
             $session->set("dice", $request->getPost("dice"));
-            $directTo = "dice100/setup";
+            $directTo .= "setup";
         } else if ($request->getPost("do-init")) {
             $session->set("player-names", $request->getPost("player-names"));
-            $directTo = "dice100/init";
+            $directTo .= "init";
         }
         return $response->redirect($directTo);
     }
@@ -109,7 +111,7 @@ class DiceGameController implements AppInjectableInterface
         $dice = $session->get("dice");
         $game = new Game($playerNames, $dice);
         $session->set("dice-game", $game);
-        return $response->redirect("dice100/start");
+        return $response->redirect($this->base . "start");
     }
 
 
@@ -151,17 +153,17 @@ class DiceGameController implements AppInjectableInterface
         $response = $this->app->response;
         $session = $this->app->session;
         $request = $this->app->request;
-        $directTo = "";
+        $directTo = $this->base;
 
         $game = $session->get("dice-game");
         if ($request->getPost("do-start")) {
             $game->decideWhoStarts();
-            $directTo = "dice100/start";
+            $directTo .= "start";
         } else if ($request->getPost("do-play")) {
-            $directTo = "dice100/play";
+            $directTo .= "play";
         } else if ($request->getPost("do-computer")) {
             $game->playRound("Computer");
-            $directTo = "dice100/play";
+            $directTo .= "play";
         }
         return $response->redirect($directTo);
     }
@@ -210,17 +212,17 @@ class DiceGameController implements AppInjectableInterface
         $response = $this->app->response;
         $session = $this->app->session;
         $request = $this->app->request;
-        $directTo = "";
+        $directTo = $this->base;
 
         $game = $session->get("dice-game");
         if ($request->getPost("do-roll")) {
             $game->playRound();
-            $directTo = "dice100/play";
+            $directTo .= "play";
         } else if ($request->getPost("do-end")) {
             $game->endRound();
-            $directTo = "dice100/start";
+            $directTo .= "start";
         } else if ($request->getPost("do-reset")) {
-            $directTo = "dice100/new";
+            $directTo .= "new";
         }
         return $response->redirect($directTo);
     }
