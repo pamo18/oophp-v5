@@ -5727,11 +5727,74 @@ hr::after {
   text-align: left;
 }
 /**-----------------------------------------/
+ * Movie
+ *-----------------------------------------*/
+pre {
+  overflow: auto;
+}
+table.movie {
+  border-collapse: collapse;
+  border: 2px solid black;
+  padding: 2em;
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+table.movie thead {
+  border: 1px solid black;
+  background-color: #165c87;
+  color: white;
+}
+table.movie th,
+table.movie td {
+  padding: 6px;
+}
+table.movie tr {
+  border: 1px solid black;
+}
+table.movie a {
+  color: white;
+}
+table.movie a:hover {
+  color: #4caf50;
+}
+.movie-form {
+  margin: 0 auto;
+  margin-top: 24px;
+  width: 40%;
+}
+.movie-form input,
+.movie-form select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.movieNav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  background-image: linear-gradient(to bottom, #165c87, black);
+  border-radius: 6px;
+}
+.movieNav a {
+  padding: 1em;
+  color: white;
+}
+.reset {
+  margin: 48px;
+}
+/**-----------------------------------------/
  * Buttons
  *-----------------------------------------*/
 .button {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
+  box-sizing: border-box;
   background-color: #0a176f;
   color: white;
   width: 10em;
@@ -5742,6 +5805,15 @@ hr::after {
   font-size: 1em;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
+}
+.wide {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+.invert {
+  background-color: #4caf50;
 }
 .button:hover {
   background-color: #4caf50;
@@ -5878,6 +5950,14 @@ hr::after {
   }
   figure img {
     border-radius: 0;
+  }
+  .movieNav {
+    display: block;
+    text-align: center;
+    border-radius: 0;
+  }
+  .movieNav a {
+    width: 100%;
   }
 }
 @media screen and (max-width: 550px) {

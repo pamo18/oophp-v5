@@ -261,11 +261,85 @@
     text-align: left;
 }
 /**-----------------------------------------/
+ * Movie
+ *-----------------------------------------*/
+ pre {
+     overflow: auto;
+ }
+
+ table.movie {
+     border-collapse: collapse;
+     border: 2px solid black;
+     padding: 2em;
+     width: 100%;
+     text-align: center;
+     margin-top: 24px;
+     margin-bottom: 24px;
+
+     thead {
+        border: 1px solid black;
+        background-color: #165c87;
+        color: white;
+     }
+
+     th, td {
+         padding: 6px;
+     }
+
+     tr {
+         border: 1px solid black;
+     }
+
+     a {
+         color: white;
+     }
+
+     a:hover {
+         color: #4caf50;
+     }
+ }
+
+ .movie-form {
+     margin: 0 auto;
+     margin-top: 24px;
+     width: 40%;
+
+     input,
+     select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+     }
+ }
+
+.movieNav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    background-image: @headfoot;
+    border-radius: 6px;
+
+    a {
+        padding: 1em;
+        color: @headfootText;
+    }
+}
+
+.reset {
+    margin: 48px;
+}
+
+/**-----------------------------------------/
  * Buttons
  *-----------------------------------------*/
 .button {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
+    box-sizing: border-box;
     background-color: #0a176f;
     color: white;
     width: 10em;
@@ -276,6 +350,17 @@
     font-size: 1em;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
+}
+
+.wide {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.invert {
+    background-color: #4caf50;
 }
 
 .button:hover {
