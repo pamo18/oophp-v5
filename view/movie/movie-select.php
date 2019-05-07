@@ -1,4 +1,4 @@
-<h4 class="center" style="text-decoration: underline;">Select Movie</h4>
+<h4 class="center" style="text-decoration: underline;">Manage Movie</h4>
 <form class="movie-form" method="post">
     <p>
         <label>Movie:<br>

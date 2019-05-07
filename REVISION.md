@@ -26,3 +26,9 @@ v4.0.0 (2019-05-01)
 *   Dice 100, improved computer intelligence.
 *   Added new redovisningen
 *   Kmom04
+
+v5.0.0 (2019-05-06)
+-------------------
+*   My Movie Database
+*   Added new redovisningen
+*   Kmom05

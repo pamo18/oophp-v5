@@ -6,7 +6,7 @@
     <a href="reset">Reset</a>
     <a href="search-title">Search title</a>
     <a href="search-year">Search year</a>
-    <a href="movie-select">Select</a>
+    <a href="movie-select">Manage</a>
 <!--    <a href="?route=movie-edit">Edit</a> | -->
     <a href="show-all-sort">Sort</a>
     <a href="show-all-paginate">Paginate</a>
