@@ -1,9 +1,13 @@
 Test och lek
 ===========================
 
-Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/lek/index.md`.
+Tester för min Textfilter, kmom06 {#tfl}
+---------------------------
 
-Tanken är att du kan ha en samlingssida där du kan länka till egna testsidor och testroutes, inom eller utom din me-sida.
+* [Textfilter bbcode](lek/text-bbcode)
+* [Textfilter Clickable](lek/text-clickable)
+* [Textfilter Markdown](lek/text-markdown)
+* [Textfilter nl2br](lek/text-nl2br)
 
 
 
