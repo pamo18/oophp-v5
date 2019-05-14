@@ -25,6 +25,7 @@ return [
             ],
             "javascripts" => [
                 "js/responsive-menu.js",
+                "js/main.js",
             ],
         ],
     ],

@@ -99,9 +99,6 @@ class MovieController implements AppInjectableInterface
      */
     public function showAllActionGet() : object
     {
-        if (!$this->app->session->get("logged-in")) {
-            return $this->app->response->redirect($this->base . "login");
-        }
         $db = $this->app->db;
         $page = $this->app->page;
         $title = "Show all movies";
@@ -127,9 +124,6 @@ class MovieController implements AppInjectableInterface
      */
     public function showAllSortActionGet() : object
     {
-        if (!$this->app->session->get("logged-in")) {
-            return $this->app->response->redirect($this->base . "login");
-        }
         $db = $this->app->db;
         $request = $this->app->request;
         $page = $this->app->page;
@@ -169,9 +163,6 @@ class MovieController implements AppInjectableInterface
      */
     public function showAllPaginateActionGet() : object
     {
-        if (!$this->app->session->get("logged-in")) {
-            return $this->app->response->redirect($this->base . "login");
-        }
         $db = $this->app->db;
         $request = $this->app->request;
         $page = $this->app->page;
@@ -190,9 +181,14 @@ class MovieController implements AppInjectableInterface
 
         // Get current page
         $currentPage = $request->getGet("page", 1);
-        if (!(is_numeric($hits) && $currentPage > 0 && $currentPage <= $max)) {
+        // Check valid page value
+        if (!(is_numeric($currentPage) && $currentPage > 0)) {
             throw new MovieException("Not valid for page.");
         }
+        if (($currentPage * $hits) > ($max * $hits)) {
+            $currentPage = 1;
+        }
+
         $offset = $hits * ($currentPage - 1);
 
         $columns = ["id", "title", "year", "image"];
@@ -208,7 +204,7 @@ class MovieController implements AppInjectableInterface
         $sql = "SELECT * FROM movie ORDER BY $orderBy $order LIMIT $hits OFFSET $offset;";
         $data = [
             "resultset" => $db->executeFetchAll($sql),
-            "defaultRoute" => "?route=show-all-paginate&",
+            "defaultRoute" => "?",
             "max" => $max
         ];
         $page->add("movie/nav");
@@ -297,9 +293,6 @@ class MovieController implements AppInjectableInterface
      */
     public function selectActionGet() : object
     {
-        if (!$this->app->session->get("logged-in")) {
-            return $this->app->response->redirect($this->base . "login");
-        }
         $db = $this->app->db;
         $page = $this->app->page;
         $title = "SELECT *";
@@ -327,9 +320,6 @@ class MovieController implements AppInjectableInterface
      */
     public function searchTitleActionGet() : object
     {
-        if (!$this->app->session->get("logged-in")) {
-            return $this->app->response->redirect($this->base . "login");
-        }
         $db = $this->app->db;
         $request = $this->app->request;
         $page = $this->app->page;
@@ -362,9 +352,6 @@ class MovieController implements AppInjectableInterface
      */
     public function searchYearActionGet() : object
     {
-        if (!$this->app->session->get("logged-in")) {
-            return $this->app->response->redirect($this->base . "login");
-        }
         $db = $this->app->db;
         $request = $this->app->request;
         $page = $this->app->page;

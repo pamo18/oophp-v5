@@ -1,5 +1,5 @@
 <h4 class="center" style="text-decoration: underline;">Edit Movie</h4>
-<form class="movie-form" method="post">
+<form class="form" method="post">
     <input type="hidden" name="movieId" value="<?= $movie->id ?>"/>
 
     <p>
@@ -20,11 +20,11 @@
     </p>
 
     <p>
-        <input class="button invert wide" type="submit" name="doSave" value="Save">
-        <input class="button invert wide" type="reset" value="Reset">
+        <input class="button invert wide-button" type="submit" name="doSave" value="Save">
+        <input class="button invert wide-button" type="reset" value="Reset">
     </p>
     <p>
-        <a class="button wide" href="movie-select">Select movie</a>
-        <a class="button wide" href="show-all">Show all</a>
+        <a class="button wide-button" href="movie-select">Select movie</a>
+        <a class="button wide-button" href="show-all">Show all</a>
     </p>
 </form>

@@ -99,5 +99,10 @@ return [
             "url" => "movie",
             "title" => "My Movie Database",
         ],
+        [
+            "text" => "Content",
+            "url" => "content",
+            "title" => "My Content Database",
+        ],
     ],
 ];

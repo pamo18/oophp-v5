@@ -32,3 +32,10 @@ v5.0.0 (2019-05-06)
 *   My Movie Database
 *   Added new redovisningen
 *   Kmom05
+
+v6.0.0 (2019-05-14)
+-------------------
+*   My Content Database
+*   Text filter class
+*   Added new redovisningen
+*   Kmom06

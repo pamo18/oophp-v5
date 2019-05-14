@@ -1,5 +1,5 @@
 <h4 class="center" style="text-decoration: underline;">Search movie by year</h4>
-<form class="movie-form" method="get">
+<form class="form" method="get">
     <input type="hidden" name="route" value="search-year">
     <p>
         <label>From:
@@ -9,7 +9,7 @@
         </label>
     </p>
     <p>
-        <input class="button invert wide" type="submit" name="doSearch" value="Search">
+        <input class="button invert wide-button" type="submit" name="doSearch" value="Search">
     </p>
-    <p><a class="button wide" href="show-all">Show all</a></p>
+    <p><a class="button wide-button" href="show-all">Show all</a></p>
 </form>

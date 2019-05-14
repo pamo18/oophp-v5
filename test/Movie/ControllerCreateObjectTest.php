@@ -93,7 +93,8 @@ class MovieControllerTest extends TestCase
 
         $this->app->request->setGlobals([
             "get" => [
-                "orderby" => "zzz"
+                "orderby" => "zzz",
+                "order" => "asc"
             ]
         ]);
 
@@ -103,6 +104,13 @@ class MovieControllerTest extends TestCase
         } catch (MovieException $e) {
             echo "MovieException tested: " . $e->getMessage();
         }
+
+        $this->app->request->setGlobals([
+            "get" => [
+                "orderby" => "id",
+                "order" => "asc"
+            ]
+        ]);
 
         $this->app->session->delete("logged-in");
         $res = $this->controller->showAllSortActionGet();

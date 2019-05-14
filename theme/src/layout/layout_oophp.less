@@ -86,11 +86,12 @@
  * Main, with or without sidebars
  *-----------------------------------------*/
 .region-main {
-    #desinax-vgrid.column(@columns * 3 / 4);
-    #desinax-vgrid.push(3);
+    #desinax-vgrid.column(@columns - 2);
+    #desinax-vgrid.push(1);
     min-height: 600px;
 
     &.has-sidebar {
+        #desinax-vgrid.column(@columns * 3 / 4);
         #desinax-vgrid.push(0);
     }
 
@@ -159,6 +160,87 @@
 
 .blogg {
     clear: both;
+}
+/**-----------------------------------------/
+ * Article
+ *-----------------------------------------*/
+article {
+    margin-bottom: 24px;
+}
+/**-----------------------------------------/
+ * Table
+ *-----------------------------------------*/
+table.content,
+table.movie {
+    border-collapse: collapse;
+    border: 2px solid black;
+    padding: 2em;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    width: 100%;
+    overflow: hidden;
+
+    thead {
+        border: 1px solid black;
+        background-color: #165c87;
+        color: white;
+
+        a {
+            color: white;
+        }
+
+        a:hover {
+            color: #4caf50;
+        }
+    }
+
+    td {
+        padding: 6px;
+    }
+
+    tr {
+        border: 1px solid black;
+    }
+
+    tr:hover:not(.first) {
+            background-color: @rowHover;
+            color: white;
+        }
+}
+
+.fixed {
+    table-layout: fixed;
+}
+/**-----------------------------------------/
+ * Form
+ *-----------------------------------------*/
+.form {
+    margin: 0 auto;
+    margin-top: 24px;
+    width: 40%;
+
+    input,
+    select,
+    textArea {
+        width: 100%;
+        max-width: 100%;
+        max-height: auto;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+    }
+
+.wide-form {
+    width: 80%;
+}
+
+.tall-text {
+    height: 200px;
 }
 /**-----------------------------------------/
  * Guess game
@@ -267,54 +349,9 @@
      overflow: auto;
  }
 
- table.movie {
-     border-collapse: collapse;
-     border: 2px solid black;
-     padding: 2em;
-     width: 100%;
-     text-align: center;
-     margin-top: 24px;
-     margin-bottom: 24px;
-
-     thead {
-        border: 1px solid black;
-        background-color: #165c87;
-        color: white;
-     }
-
-     th, td {
-         padding: 6px;
-     }
-
-     tr {
-         border: 1px solid black;
-     }
-
-     a {
-         color: white;
-     }
-
-     a:hover {
-         color: #4caf50;
-     }
- }
-
- .movie-form {
-     margin: 0 auto;
-     margin-top: 24px;
-     width: 40%;
-
-     input,
-     select {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-     }
- }
+.reset {
+    margin: 48px;
+}
 
 .movieNav {
     display: flex;
@@ -328,11 +365,62 @@
         color: @headfootText;
     }
 }
+/**-----------------------------------------/
+ * Content
+ *-----------------------------------------*/
+ a.icons.blue {
+     color: blue;
+ }
 
-.reset {
-    margin: 48px;
+ a.icons.red {
+     color: red;
+ }
+
+ a.icons.green {
+     color: green;
+ }
+
+ a:hover.icons {
+     opacity: 0.7;
+ }
+
+ .menu {
+     position: relative;
+     margin-bottom: 48px;
+ }
+
+ #message {
+     -webkit-animation: cssAnimation 3s forwards;
+     animation: cssAnimation 3s forwards;
+     position: absolute;
+     left: 25%;
+     width: 50%;
+     color: white;
+     padding: 4px 4px;
+     background-color: #4caf50;
+     box-sizing: border-box;
+     border-radius: 0 0 8px 8px;
+ }
+ @keyframes cssAnimation {
+     0%   {opacity: 1;}
+     90%  {opacity: 1;}
+     100% {opacity: 0;}
+ }
+ @-webkit-keyframes cssAnimation {
+     0%   {opacity: 1;}
+     90%  {opacity: 1;}
+     100% {opacity: 0;}
+ }
+
+input.check {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    margin-left: 4px;
+    margin-right: 4px;
+    top: -1px;
 }
-
 /**-----------------------------------------/
  * Buttons
  *-----------------------------------------*/
@@ -353,7 +441,8 @@
     cursor: pointer;
 }
 
-.wide {
+.wide-button {
+    display: block;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -405,7 +494,6 @@
 .figure.Paul {
     margin-bottom: @magicNumber;
 }
-
 /**-----------------------------------------/
  * Footer columns
  *-----------------------------------------*/

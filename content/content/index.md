@@ -7,11 +7,11 @@ views:
             src: "image/theme/flash.jpg?width=1100&height=144&crop-to-fit&area=20,0,0,0"
 ---
 
-My Movie Databse
+My Content Databse
 ======================
-A movie database with CRUD, search, reset, pagination and sorting options.
+A content database with CRUD, reset, pagination and sorting options.
 
 
 <div class="start-game center">
-    <a class="button" href="movie/show-all">Go to movies</a>
+    <a class="button" href="content/show-all">View content</a>
 </div>

@@ -2,7 +2,7 @@
 if (!$resultset) {
     return;
 }
-$defaultRoute = "?route=show-all-sort&"
+$defaultRoute = "?"
 ?>
 
 <table class="movie">

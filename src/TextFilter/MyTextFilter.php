@@ -22,6 +22,8 @@ class MyTextFilter
         "link"      => "makeClickable",
         "markdown"  => "markdown",
         "nl2br"     => "nl2br",
+        "strip"     => "strip",
+        "esc"       => "esc",
     ];
 
 
