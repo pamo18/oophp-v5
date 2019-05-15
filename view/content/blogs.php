@@ -12,7 +12,8 @@ if (!$resultset) {
         <h1><a href="../blog/view/<?= esc($row->slug) ?>"><?= esc($row->title) ?></a></h1>
         <p><i>Published: <time datetime="<?= esc($row->published_iso8601) ?>" pubdate><?= esc($row->published) ?></time></i></p>
     </header>
-    <?= substr(esc($row->data), 0, 300) ?> <a href="../blog/view/<?= esc($row->slug) ?>">Läs mer »</a>
+    <?= substr(($row->filter ? textFilter($row->data, explode(",", $row->filter)) : esc($row->data)), 0, 300) ?>
+    <a href="../blog/view/<?= esc($row->slug) ?>">Läs mer »</a>
 </section>
 <?php endforeach; ?>
 

@@ -1,5 +1,23 @@
 <?php
 
+use Pamo\TextFilter\MyTextFilter;
+
+/**
+ * My text filter
+ *
+ * @param string $text to filter
+ * @param array  $filters to use
+ *
+ * @return string filtered
+ */
+function textFilter($text, $filters)
+{
+    $filter = new MyTextFilter();
+    return $filter->parse($text, $filters);
+}
+
+
+
 /**
  * Sanitize value for output in view.
  *
